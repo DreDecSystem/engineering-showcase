@@ -45,23 +45,6 @@ export const About = () => {
               </p>
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl p-8 md:p-12 border-2 border-accent/20 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Strategic Goals</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                "Expand service offering within the energy transition",
-                "Build partnerships with technology providers & government programmes",
-                "Develop local capacity through training and mentorship",
-                "Position the firm as a leading advisory partner in South Africa",
-              ].map((goal, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <p className="text-foreground">{goal}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
