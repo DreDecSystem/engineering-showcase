@@ -33,7 +33,7 @@ Message:
 ${formData.message}
     `.trim();
     
-    const mailtoLink = `mailto:info@optimaimpact.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:info@optimaimpactconsulting.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
     
     toast.success("Opening your email client...", {
@@ -154,7 +154,7 @@ ${formData.message}
           <div className="mt-12 p-6 rounded-xl bg-secondary/50 border-2 border-border animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <h3 className="text-lg font-semibold text-foreground mb-4">Contact Information</h3>
             <div className="space-y-2 text-muted-foreground">
-              <p><span className="font-semibold text-foreground">Email:</span> info@optimaimpact.co.za</p>
+              <p><span className="font-semibold text-foreground">Email:</span> info@optimaimpactconsulting.com</p>
               <p><span className="font-semibold text-foreground">Location:</span> South Africa</p>
             </div>
           </div>
