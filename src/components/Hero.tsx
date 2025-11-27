@@ -42,7 +42,7 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
-          <div className="flex justify-center mb-6 animate-float">
+          <div className="flex justify-center mb-6">
             <img src={logo} alt="Optima Impact Consulting" className="h-32 w-auto" />
           </div>
           
