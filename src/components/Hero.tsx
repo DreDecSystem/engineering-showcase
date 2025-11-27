@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 export const Hero = () => {
-  const scrollToQuote = () => {
-    document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-secondary/30 to-background">
       {/* Animated Gears Background */}
@@ -58,22 +55,24 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button
-              size="lg"
-              onClick={scrollToQuote}
-              className="bg-gradient-to-r from-accent to-primary hover:shadow-[var(--shadow-glow)] transition-all duration-300 text-lg px-8 py-6"
-            >
-              Get a Quote
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6"
-            >
-              Our Services
-            </Button>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-accent to-primary hover:shadow-[var(--shadow-glow)] transition-all duration-300 text-lg px-8 py-6"
+              >
+                Get a Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6"
+              >
+                Our Services
+              </Button>
+            </Link>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 max-w-3xl mx-auto">
