@@ -6,10 +6,19 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Upload } from "lucide-react";
 
 export const CareerForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fileName, setFileName] = useState<string>("");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setFileName(file.name);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,17 +34,19 @@ export const CareerForm = () => {
       message: formData.get("message"),
     };
 
-    const message = `*New Career Application*%0A%0A*Name:* ${data.name}%0A*Email:* ${data.email}%0A*Phone:* ${data.phone}%0A*Position:* ${data.position}%0A*Experience:* ${data.experience}%0A%0A*Cover Letter:*%0A${data.message}`;
+    const cvNote = fileName ? `%0A*CV Attached:* ${fileName}` : "";
+    const message = `*New Career Application*%0A%0A*Name:* ${data.name}%0A*Email:* ${data.email}%0A*Phone:* ${data.phone}%0A*Position:* ${data.position}%0A*Experience:* ${data.experience}${cvNote}%0A%0A*Cover Letter:*%0A${data.message}%0A%0APlease request CV via email: ${data.email}`;
     
     const whatsappUrl = `https://wa.me/27760663663?text=${message}`;
     window.open(whatsappUrl, '_blank');
 
     toast({
       title: "Application Submitted!",
-      description: "We'll review your application and get back to you soon.",
+      description: "We'll review your application and get back to you soon. Please also email your CV to careers@optimaimpactconsulting.com",
     });
 
     e.currentTarget.reset();
+    setFileName("");
     setIsSubmitting(false);
   };
 
@@ -56,7 +67,7 @@ export const CareerForm = () => {
                 <Input
                   id="name"
                   name="name"
-                  placeholder="John Doe"
+                  placeholder="Thabo Malema"
                   required
                   className="border-2 focus:border-accent"
                 />
@@ -68,7 +79,7 @@ export const CareerForm = () => {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="thabo@example.com"
                   required
                   className="border-2 focus:border-accent"
                 />
@@ -80,7 +91,7 @@ export const CareerForm = () => {
                   id="phone"
                   name="phone"
                   type="tel"
-                  placeholder="+27 XX XXX XXXX"
+                  placeholder="+27 82 123 4567"
                   required
                   className="border-2 focus:border-accent"
                 />
@@ -115,6 +126,30 @@ export const CareerForm = () => {
                     <SelectItem value="10+">10+ years</SelectItem>
                   </SelectContent>
                 </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="cv">Upload CV/Resume *</Label>
+                <div className="relative">
+                  <Input
+                    id="cv"
+                    name="cv"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    required
+                    onChange={handleFileChange}
+                    className="border-2 focus:border-accent file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-primary-foreground hover:file:bg-accent/90 file:cursor-pointer"
+                  />
+                </div>
+                {fileName && (
+                  <p className="text-sm text-muted-foreground flex items-center gap-2">
+                    <Upload className="h-4 w-4" />
+                    {fileName}
+                  </p>
+                )}
+                <p className="text-xs text-muted-foreground">
+                  Accepted formats: PDF, DOC, DOCX (Max 5MB)
+                </p>
               </div>
 
               <div className="space-y-2">
