@@ -16,9 +16,6 @@ export const Navigation = () => {
     to: "/services",
     label: "Services"
   }, {
-    to: "/target-market",
-    label: "Target Market"
-  }, {
     to: "/contact",
     label: "Contact"
   }, {

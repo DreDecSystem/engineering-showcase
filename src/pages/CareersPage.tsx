@@ -1,8 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { CareerForm } from "@/components/CareerForm";
 import { Briefcase, Users, TrendingUp, Award } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const CareersPage = () => {
   const benefits = [
@@ -72,39 +71,8 @@ const CareersPage = () => {
           </div>
         </section>
 
-        {/* Current Openings */}
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Current Opportunities
-              </h2>
-              <div className="bg-card border-2 border-border rounded-xl p-12 mb-8">
-                <Briefcase className="h-16 w-16 text-accent mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  We're Always Looking for Talent
-                </h3>
-                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  While we don't have any open positions at the moment, we're always interested in connecting with talented individuals passionate about renewable energy and engineering.
-                </p>
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-accent to-primary hover:shadow-[var(--shadow-glow)] transition-all duration-300"
-                  >
-                    Submit Your CV
-                  </Button>
-                </Link>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Send your resume and cover letter to{" "}
-                <a href="mailto:careers@optimaimpactconsulting.com" className="text-accent hover:underline">
-                  careers@optimaimpactconsulting.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Application Form */}
+        <CareerForm />
       </div>
       <Footer />
     </main>

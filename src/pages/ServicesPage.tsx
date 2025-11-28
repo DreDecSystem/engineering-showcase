@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Services } from "@/components/Services";
+import { QuoteForm } from "@/components/QuoteForm";
 import { Footer } from "@/components/Footer";
 
 const ServicesPage = () => {
@@ -8,6 +9,7 @@ const ServicesPage = () => {
       <Navigation />
       <div className="pt-20">
         <Services />
+        <QuoteForm />
       </div>
       <Footer />
     </main>
