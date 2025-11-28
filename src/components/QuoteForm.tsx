@@ -65,7 +65,7 @@ ${formData.message}
                 <Input
                   id="name"
                   required
-                  placeholder="John Doe"
+                  placeholder="Thabo Malema"
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   className="border-2 focus:border-accent"
@@ -78,7 +78,7 @@ ${formData.message}
                   id="email"
                   type="email"
                   required
-                  placeholder="john@example.com"
+                  placeholder="thabo@example.com"
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   className="border-2 focus:border-accent"
@@ -92,7 +92,7 @@ ${formData.message}
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="+27 123 456 789"
+                  placeholder="+27 82 123 4567"
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   className="border-2 focus:border-accent"
